@@ -1,5 +1,15 @@
 # AI-Powered Road Accident Detection and Video Summarization
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat&logo=opencv&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)
+![Computer Vision](https://img.shields.io/badge/Computer%20Vision-AI-blue)
+![Deep Learning](https://img.shields.io/badge/Deep%20Learning-Powered-red)
+![Accuracy](https://img.shields.io/badge/Accuracy-94%25-brightgreen)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 An AI-powered computer vision system that detects road accidents from uploaded videos using a Swin Transformer model. The application identifies accident scenes, extracts important accident frames, generates a summarized accident video, and provides an interactive Streamlit interface.
 
 ---
@@ -24,39 +34,27 @@ An AI-powered computer vision system that detects road accidents from uploaded v
 
 ---
 
-## Project Architecture
+## 🏗️ Project Architecture
 
-Video Upload
+```mermaid
+flowchart TD
+    A[📹 User Uploads Video] --> B[🎞️ Frame Extraction<br/>OpenCV]
+    B --> C[🖼️ Image Preprocessing<br/>Resize • Normalize • Transform]
+    C --> D[🧠 Swin Transformer Model]
+    D --> E{Prediction}
 
-↓
+    E -->|Accident| F[🚨 Accident Frame Detection]
+    E -->|Non-Accident| G[✅ Ignore Frame]
 
-Frame Extraction (OpenCV)
+    F --> H[📸 Store Accident Frames]
+    H --> I[🖼️ Generate Grid View]
+    H --> J[🎬 Generate Accident Summary Video]
 
-↓
+    I --> K[📊 Streamlit Dashboard]
+    J --> K
 
-Image Preprocessing
-
-↓
-
-Swin Transformer Model
-
-↓
-
-Accident / Non-Accident Classification
-
-↓
-
-Accident Frame Filtering
-
-↓
-
-Summary Video Generation
-
-↓
-
-Streamlit Dashboard
-
----
+    K --> L[⬇️ Download Summary Video]
+```
 
 ## Tech Stack
 
